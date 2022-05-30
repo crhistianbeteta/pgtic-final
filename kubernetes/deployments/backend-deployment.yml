@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend-deployment
+spec:
+  selector:
+    matchLabels:
+      app: backend-pod
+  replicas: 1
+  template:
+    metadata:
+      name: backend-pod
+      labels:
+        app: backend-pod
+    spec:
+      containers:
+        - name: backend
+          image: pgtic/backend
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000

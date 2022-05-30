@@ -8,7 +8,7 @@ metadata:
     app: backend-service
 
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - protocol: TCP
       port: 3000

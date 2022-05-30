@@ -4,8 +4,6 @@ metadata:
   name: example-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /
 
 spec:
   rules:
@@ -18,7 +16,7 @@ spec:
                 name: frontend-service
                 port:
                   number: 80
-          - path: /api/?(.*)
+          - path: /products/
             pathType: Prefix
             backend:
               service:

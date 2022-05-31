@@ -4,15 +4,15 @@
 #kubectl delete hpa frontend-scl-cpu
 
 # Delete ingress
-kubectl delete ingress example-ingress
+kubectl delete ingress pgtic-ingress
 
 # Delete services
-kubectl delete services frontend-service
-kubectl delete services backend-service
+kubectl delete services frontend-svc
+kubectl delete services backend-svc
 
 # Delete deployments
-kubectl delete deployments frontend-deployment
-kubectl delete deployments backend-deployment
+kubectl delete deployments frontend-dpl
+kubectl delete deployments backend-dpl
 
 # Delete minikube cluster
 minikube delete

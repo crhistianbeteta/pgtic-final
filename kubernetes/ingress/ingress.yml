@@ -10,13 +10,13 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: frontend-service
+                name: frontend-svc
                 port:
                   number: 80
           - path: /products
             pathType: Prefix
             backend:
               service:
-                name: backend-service
+                name: backend-svc
                 port:
                   number: 3000

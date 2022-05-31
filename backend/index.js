@@ -22,6 +22,20 @@ app.get("/products", (req, res) => {
   res.send(products);
 });
 
+app.get("/calculator", (req, res) => {
+  let x = 0.0001;
+  const initialTime = new Date().getTime();
+  for (let index = 0; index < 1000000000; index++) {
+    x += Math.sqrt(x);
+  }
+  const finalTime = new Date().getTime();
+  const totalTime = finalTime - initialTime;
+  
+  
+  res.send({x,executionTime: totalTime});
+});
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

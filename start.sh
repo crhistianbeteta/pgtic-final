@@ -17,18 +17,24 @@ docker build -t pgtic/backend backend
 docker build -t pgtic/frontend frontend
 
 # Create deployments
-kubectl apply -f kubernetes/deployments/frontend-deployment.yml
-kubectl apply -f kubernetes/deployments/backend-deployment.yml
+#kubectl apply -f kubernetes/deployments/frontend-deployment.yml
+#kubectl apply -f kubernetes/deployments/backend-deployment.yml
 
 # Create services
-kubectl apply -f kubernetes/services/frontend-service.yml
-kubectl apply -f kubernetes/services/backend-service.yml
+#kubectl apply -f kubernetes/services/frontend-service.yml
+#kubectl apply -f kubernetes/services/backend-service.yml
+
+# Create backend
+kubectl apply -f kubernetes/backend/backend.yml
+
+# Create frontend
+kubectl apply -f kubernetes/frontend/frontend.yml
 
 # Create ingress
 kubectl apply -f kubernetes/ingress/ingress.yml
 
 # Create autoescalers
-#kubectl apply -f kubernetes/autoescaler/autoscaler-frontend.yml
-kubectl apply -f kubernetes/autoescaler/autoscaler-request-frontend.yml
-#kubectl apply -f kubernetes/autoescaler/autoscaler-backend.yml
-#kubectl apply -f kubernetes/autoescaler/autoscaler-request-backend.yml
+#kubectl apply -f kubernetes/autoecaler/autoscaler-frontend.yml
+#kubectl apply -f kubernetes/autoscaler/autoscaler-request-frontend.yml
+#kubectl apply -f kubernetes/autoscaler/autoscaler-backend.yml
+#kubectl apply -f kubernetes/autoscaler/autoscaler-request-backend.yml

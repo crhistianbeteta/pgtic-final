@@ -9,20 +9,19 @@ spec:
     kind: Deployment
     name: frontend-deployment
   minReplicas: 1
-  maxReplicas: 3
+  maxReplicas: 5
   metrics:
-    - type: Resource
-      resource:
-        name: cpu
+    - type: Object
+      object:
+        metric:
+          name: requests-per-second
+        describedObject:
+          apiVersion: networking.k8s.io/v1
+          kind: Ingress
+          name: pgtic-ingress
         target:
-          type: Utilization
-          averageUtilization: 5
-    - type: Resource
-      resource:
-        name: memory
-        target:
-          type: Utilization
-          averageUtilization: 30
+          type: Value
+          value: 10
   behavior:
     scaleDown:
       selectPolicy: Min

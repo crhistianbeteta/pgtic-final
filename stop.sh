@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Delete horizontalautoscalers
+#kubectl delete hpa frontend-scl-cpu
+
 # Delete ingress
 kubectl delete ingress example-ingress
 
@@ -13,4 +16,3 @@ kubectl delete deployments backend-deployment
 
 # Delete minikube cluster
 minikube delete
-

@@ -8,4 +8,4 @@
 
 #while sleep 0.01; do wget -q -O- http://192.168.59.103 > /dev/null; done
 
-kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c "while sleep 0.25; do wget -q -O- http://backend-svc:3000/calculator; done"
+kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c "while sleep 1; do wget -q -O- http://backend-svc:3000/calculator;  done"

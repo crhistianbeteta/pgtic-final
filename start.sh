@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start minikube cluster
-minikube start --driver=virtualbox
+minikube start --driver=virtualbox --disable-optimizations
 
 # Enable ingress addon
 minikube addons enable ingress
@@ -16,25 +16,12 @@ eval $(minikube docker-env)
 docker build -t pgtic/backend backend
 docker build -t pgtic/frontend frontend
 
-# Create deployments
-#kubectl apply -f kubernetes/deployments/frontend-deployment.yml
-#kubectl apply -f kubernetes/deployments/backend-deployment.yml
 
-# Create services
-#kubectl apply -f kubernetes/services/frontend-service.yml
-#kubectl apply -f kubernetes/services/backend-service.yml
-
-# Create backend
+# Create backend deployment, service and autoscaler
 kubectl apply -f kubernetes/backend/backend.yml
 
-# Create frontend
+# Create frontend deployment, service and autoscaler
 kubectl apply -f kubernetes/frontend/frontend.yml
 
 # Create ingress
 kubectl apply -f kubernetes/ingress/ingress.yml
-
-# Create autoescalers
-#kubectl apply -f kubernetes/autoecaler/autoscaler-frontend.yml
-#kubectl apply -f kubernetes/autoscaler/autoscaler-request-frontend.yml
-#kubectl apply -f kubernetes/autoscaler/autoscaler-backend.yml
-#kubectl apply -f kubernetes/autoscaler/autoscaler-request-backend.yml

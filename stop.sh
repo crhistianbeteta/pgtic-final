@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Delete horizontalautoscalers
-#kubectl delete hpa frontend-scl-cpu
+kubectl delete hpa frontend-scl
+kubectl delete hpa backend-scl
 
 # Delete ingress
 kubectl delete ingress pgtic-ingress

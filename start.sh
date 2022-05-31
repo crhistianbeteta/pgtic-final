@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start minikube cluster
-minikube start
+minikube start --driver=virtualbox
 
 # Enable ingress addon
 minikube addons enable ingress
@@ -23,4 +23,3 @@ kubectl apply -f kubernetes/services/backend-service.yml
 
 # Create ingress
 kubectl apply -f kubernetes/ingress/ingress.yml
-

@@ -47,8 +47,7 @@ spec:
     app: frontend
 ---
 
-apiVersion: autoscaling/v2
-
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: frontend-scl

@@ -16,4 +16,4 @@ kubectl delete deployments frontend-dpl
 kubectl delete deployments backend-dpl
 
 # Delete minikube cluster
-minikube delete
+#minikube delete

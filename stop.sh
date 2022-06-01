@@ -1,19 +1,13 @@
 #!/bin/bash
 
-# Delete horizontalautoscalers
-kubectl delete hpa frontend-scl
-kubectl delete hpa backend-scl
+# Delete backend deployment, service and autoscaler
+kubectl delete -f kubernetes/backend/backend.yml
+
+# Delete frontend deployment, service and autoscaler
+kubectl delete -f kubernetes/frontend/frontend.yml
 
 # Delete ingress
-kubectl delete ingress pgtic-ingress
-
-# Delete services
-kubectl delete services frontend-svc
-kubectl delete services backend-svc
-
-# Delete deployments
-kubectl delete deployments frontend-dpl
-kubectl delete deployments backend-dpl
+kubectl delete -f kubernetes/ingress/ingress.yml
 
 # Delete minikube cluster
-#minikube delete
+minikube delete

@@ -16,8 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: pgtic/frontend
-          imagePullPolicy: Never
+          image: kinrre/pgtic-frontend
           ports:
             - containerPort: 80
               protocol: TCP

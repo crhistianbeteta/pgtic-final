@@ -14,8 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: pgtic/backend
-          imagePullPolicy: Never
+          image: kinrre/pgtic-backend
           ports:
             - containerPort: 3000
               protocol: TCP

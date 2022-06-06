@@ -11,7 +11,6 @@
       - curl
       - gnupg-agent
       - software-properties-common
-      - git
 
 - name: Add an apt signing key for Docker
   apt_key:
@@ -90,14 +89,3 @@
     dest: /etc/hosts
     line: "10.0.2.2 localregistry.local"
     state: present
-
-- name: Adding git repository for Kubernetes
-  git:
-    repo: https://github.com/crhistianbeteta/pgtic-final.git
-    dest: /pgtic-final/
-
-- name: Build backend image
-  command: docker build -t pgtic/backend /pgtic-final/backend
-
-- name: Build frontend image
-  command: docker build -t pgtic/frontend /pgtic-final/frontend
